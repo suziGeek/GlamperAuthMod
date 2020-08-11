@@ -63,10 +63,10 @@ namespace GlamperAuth.Models
         //    _conn.Execute("DELETE FROM Products WHERE ProductID = @id;",
                                        //new { id = product.name });
         //}
-        public void InsertFavorite(Favorites favoriteToInsert)
+        public void InsertFavorite(uint id)
         {
             _conn.Execute("INSERT INTO Favorites (userid) VALUES (@id);",
-                new { userid = favoriteToInsert.id });
+                new { id = id });
 
         }
         //-----parse xml camping detail page

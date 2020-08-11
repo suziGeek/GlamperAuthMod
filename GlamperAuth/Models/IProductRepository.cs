@@ -15,7 +15,7 @@ namespace GlamperAuth.Models
         //public IEnumerable<Category> GetCategories();
         //public Product AssignCategory();
         //public void DeleteProduct(Product product);
-        public void InsertFavorite(Favorites favortieToInsert);
+        public void InsertFavorite(uint facilityID);
 
     }
 }
