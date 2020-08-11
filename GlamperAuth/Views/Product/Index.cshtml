@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "index";
+}
+
+
+
+<h2>Campsites</h2>
+
+
+
+<div id="myDiv" class="mapbut" style="width:100%;height:400px;"></div>
+
+<script type="text/javascript">
+
+        //Set the Latitude and Longitude of the Map
+    var myAddress = new google.maps.LatLng(39.6336111, -82.8747222); 	
+
+        //Create Options or set different Characteristics of Google Map
+        var mapOptions = {
+            center: myAddress,
+            zoom: 10,
+            minZoom: 0,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        //Display the Google map in the div control with the defined Options
+        var map = new google.maps.Map(document.getElementById("myDiv"), mapOptions);
+
+        //Set Marker on the Map
+      @foreach(var item in Model){
+     <text>
+        var marker = new google.maps.Marker({
+          map: map,
+          position: { lat: @item.latitude, lng: @item.longitude },
+          title: '@item.facilityName'
+        });
+    </text>
+}
+
+        marker.setMap(map);
+
+</script>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Longitude</th>
+        <th>Latidtude</th>
+        <th>Type</th>
+        
+    </tr>
+
+    @foreach (var product in Model)
+    {
+        <tr>
+            <td><a href=/Product/ViewProduct/@product.facilityID>@product.facilityID</a></td>
+            <td>@product.facilityName </td>
+            <td>@product.longitude</td>
+            <td>@product.latitude</td>
+            <td>@product.contractType</td>
+
+
+        </tr>
+
+    }
+</table>
+

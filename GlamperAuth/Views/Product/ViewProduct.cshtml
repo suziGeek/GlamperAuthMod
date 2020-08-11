@@ -1,0 +1,56 @@
+﻿@model Product
+@using Microsoft.AspNetCore.Identity;
+
+<div>
+    <div class="product-container">
+        <h3>@Model.facilityName Information</h3>
+    </div>
+
+    <table class="table">
+        <tr>
+
+            <th>Name</th>
+            <td>Type</td>
+            <th>id</th>
+
+
+        </tr>
+        <tr>
+            <td>@Model.facilityName</td>
+            <td>@Model.contractType</td>
+            <td>@Model.facilityID</td>
+
+
+        </tr>
+
+    </table>
+    <div class="btn-div">
+
+        @using (Html.BeginForm("InsertFavoriteToDatabase", "Product", "Post"))
+        {
+            <input type="hidden" asp-for="facilityID" value="@Model.facilityID" />
+            <input type="submit" class="btn btn-danger"  value="Add to favorites" />
+        }
+
+       
+
+
+    </div>
+</div>
+
+
+
+@*@using (Html.BeginForm("InsertFavorite", "Favorites", new { id = Model.id }, FormMethod.Post))
+    {
+        <button>insert</button>
+    }*@
+
+@*@Html.ActionLink("Add to Favorites", "InsertFavorites", "Favorites", new { Model.id }, null)*@
+
+@*@Html.ActionLink("Add to favorties",
+                            "InsertFavorite",// <-- ActionMethod
+    "Favorites", // <-- Controller Name.
+    new { id = Model.id }, // <-- Route arguments.
+    null // <-- htmlArguments .. which are none. You need this value
+        //     otherwise you call the WRONG method ...
+        //     (refer to comments, below).*@

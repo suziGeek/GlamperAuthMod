@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Favorites>
+
+
+
+<h2>Favorite Campsites</h2>
+
+<div> this is favorites</div>
+
+
+    <table class="table">
+            <tr>
+                <th>ID</th>
+              
+            </tr>
+
+            @foreach (var Favorite in Model)
+            {
+                <tr>
+                    <td> @Favorite.id</td>
+                    
+
+
+                </tr>
+
+            }
+        </table>
+
+   
+
+
+
+
