@@ -32,9 +32,9 @@ namespace GlamperAuth.Controllers
             return View(product);
         }
 
-        public IActionResult InsertFavoriteToDatabase(uint facilityID)
+        public IActionResult InsertFavoriteToDatabase(uint facilityID, string facilityName, string user)
         {
-            repo.InsertFavorite(facilityID);
+            repo.InsertFavorite(facilityID, facilityName, user);
 
             return RedirectToAction("Index");
         }

@@ -51,6 +51,8 @@ namespace GlamperAuth.Models
 
         public string state;
 
+        public string user;
+
 
     }
 }

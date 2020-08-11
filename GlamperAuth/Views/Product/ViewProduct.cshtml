@@ -1,5 +1,6 @@
 ﻿@model Product
 @using Microsoft.AspNetCore.Identity;
+@inject UserManager<IdentityUser> UserManager
 
 <div>
     <div class="product-container">
@@ -29,10 +30,12 @@
         @using (Html.BeginForm("InsertFavoriteToDatabase", "Product", "Post"))
         {
             <input type="hidden" asp-for="facilityID" value="@Model.facilityID" />
-            <input type="submit" class="btn btn-danger"  value="Add to favorites" />
+            <input type="hidden" asp-for="facilityName" value="@Model.facilityName" />
+            <input type="hidden" asp-for="user" value="@User.Identity.Name" />
+            <input type="submit" class="btn btn-danger" value="Add to favorites" />
         }
 
-       
+
 
 
     </div>
