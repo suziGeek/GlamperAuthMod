@@ -26,12 +26,15 @@
 
     </table>
     <div class="btn-div">
+        @{
+             var user = Context.User.Identity.Name; 
+        }
 
         @using (Html.BeginForm("InsertFavoriteToDatabase", "Product", "Post"))
         {
             <input type="hidden" asp-for="facilityID" value="@Model.facilityID" />
             <input type="hidden" asp-for="facilityName" value="@Model.facilityName" />
-            <input type="hidden" asp-for="user" value="@User.Identity.Name" />
+            <input type="hidden" asp-for="user" value="@user" />
             <input type="submit" class="btn btn-danger" value="Add to favorites" />
         }
 

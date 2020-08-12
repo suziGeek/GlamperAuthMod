@@ -13,45 +13,45 @@ namespace GlamperAuth.Models
         }
 
 
-        public string agencyIcon;
+        public string agencyIcon { get; set; }
 
-        public string agencyName;
+        public string agencyName { get; set; }
 
-        public string contractID;
+        public string contractID { get; set; }
 
-        public string contractType;
+        public string contractType { get; set; }
 
-        public uint facilityID;
+        public uint facilityID { get; set; }
 
-        public string facilityName;
+        public string facilityName { get; set; }
 
-        public string faciltyPhoto;
+        public string faciltyPhoto { get; set; }
 
-        public string favorite;
+        public string favorite { get; set; }
 
-        public decimal latitude;
+        public decimal latitude { get; set; }
 
-        public string listingOnly;
+        public string listingOnly { get; set; }
 
-        public decimal longitude;
+        public decimal longitude { get; set; }
 
-        public string regionName;
+        public string regionName { get; set; }
 
-        public string shortName;
+        public string shortName { get; set; }
 
-        public string sitesWithAmps;
+        public string sitesWithAmps { get; set; }
 
-        public string sitesWithPetsAllowed;
+        public string sitesWithPetsAllowed { get; set; }
 
-        public string sitesWithSewerHookup;
+        public string sitesWithSewerHookup { get; set; }
 
-        public string sitesWithWaterHookup;
+        public string sitesWithWaterHookup { get; set; }
 
-        public string sitesWithWaterfront;
+        public string sitesWithWaterfront { get; set; }
 
-        public string state;
+        public string state { get; set; }
 
-        public string user;
+        public string user { get; set; }
 
 
     }

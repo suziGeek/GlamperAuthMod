@@ -6,6 +6,8 @@ using GlamperAuth.Models;
 using Microsoft.AspNetCore.Mvc;
 
 
+
+
 namespace GlamperAuth.Controllers
 {
         public class ProductController : Controller
@@ -34,6 +36,7 @@ namespace GlamperAuth.Controllers
 
         public IActionResult InsertFavoriteToDatabase(uint facilityID, string facilityName, string user)
         {
+        
             repo.InsertFavorite(facilityID, facilityName, user);
 
             return RedirectToAction("Index");
