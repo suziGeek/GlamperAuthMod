@@ -1,22 +1,17 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @model IEnumerable<Product>
 
-
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
 @{
     ViewData["Title"] = "Home Page";
 }
-<style>
-    .tabwidth {
-        display: flex;
-        justify-content: center;
-        width: 75%;
-    }
-</style>
+
+       
 
 <!-- Full Page Intro -->
+
 <div class="view full-page-intro" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/78.jpg'); background-repeat: no-repeat; background-size: cover;">
 
     <!-- Mask & flexbox options-->
@@ -60,7 +55,7 @@
 
                         <!--Card content-->
                         <div class="card-body" id="myDiv" style="width:100%;height:400px;">
-@* <div id="myDiv" class="mapbut" style="width:100%;height:400px;"></div> *@
+                            @* <div id="myDiv" class="mapbut" style="width:100%;height:400px;"></div> *@
 
                             <!-- Map -->
                             <script type="text/javascript">
@@ -114,54 +109,38 @@
     <!-- Mask & flexbox options-->
 
 </div>
-<!-- Full Page Intro -->
-<!--Main layout-->
 
-           
-                <!--Grid column-->
 
-           
-        <!--Section: Main info-->
-
-       
-                    <!--/First row-->
-                    <!--Second row-->
-                    
-            <!--First row-->
-            
-                    <!--/Grid row-->
-               
-                <!--/Grid column-->
-                <!--Grid column-->
-                
-                    <!--/Grid row-->
-   
-<!--Main layout-->
-
-<div class="card-body tabwidth" >
-    <table class="table">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Longitude</th>
-            <th>Latidtude</th>
-            <th>Type</th>
-
-        </tr>
-
-        @foreach (var product in Model)
-        {
+<div class="container-fluid">
+    <div class="container" style="width: 75%">
+        <table class="table">
             <tr>
-                <td><a href=/Product/ViewProduct/@product.facilityID>@product.facilityID</a></td>
-                <td>@product.facilityName </td>
-                <td>@product.longitude</td>
-                <td>@product.latitude</td>
-                <td>@product.contractType</td>
-
+                <th>ID</th>
+                <th>Name</th>
+                <th>Longitude</th>
+                <th>Latidtude</th>
+                <th>Type</th>
 
             </tr>
 
-        }
-    </table>
+            @foreach (var product in Model)
+            {
+                <tr>
+
+                    <td>@product.facilityName </td>
+                    <td>@product.longitude</td>
+                    <td>@product.latitude</td>
+                    <td>@product.contractType</td>
+                    <td>
+                        <a class="btn btn-outline-success" href=/Product/ViewProduct/@product.facilityID>Learn More</a>
+                    </td>
+
+
+
+                </tr>
+
+            }
+        </table>
+    </div>
 </div>
 

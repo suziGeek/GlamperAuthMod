@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace GlamperAuth.Models
 {
@@ -52,6 +53,7 @@ namespace GlamperAuth.Models
         public string state { get; set; }
 
         public string user { get; set; }
+        //public XElement CampDetail {get;set;}
 
 
     }
