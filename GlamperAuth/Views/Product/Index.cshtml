@@ -77,11 +77,13 @@
                             //Set Marker on the Map
                           @foreach(var item in Model){
                          <text>
+
                             var marker = new google.maps.Marker({
                               map: map,
                               position: { lat: @item.latitude, lng: @item.longitude },
                               title: '@item.facilityName'
                             });
+
                         </text>
                     }
 
