@@ -60,34 +60,35 @@
                             <!-- Map -->
                             <script type="text/javascript">
 
-                    //Set the Latitude and Longitude of the Map
-                    var myAddress = new google.maps.LatLng(39.6336111, -82.8747222);
+                                // This example displays a marker at the center of Australia.
+                                // When the user clicks the marker, an info window opens.
+                                function initMap() {
+                                    
+                                    
+                                    const map = new google.maps.Map(document.getElementById("myDiv"), {
+                                        zoom: 6,
+                                        center: { lat: 39.6336111, lng: -82.8747222  }
+                                    });
 
-                    //Create Options or set different Characteristics of Google Map
-                     var mapOptions = {
-                        center: myAddress,
-                        zoom: 10,
-                        minZoom: 0,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP
-                    };
+                                    @foreach (var item in Model)
+                                    {
+                                             <text>
+                                                     
+                                    var infowindow = new google.maps.InfoWindow({
+                                        content: '@item.facilityName'
+                                    });
+                                        var marker = new google.maps.Marker({
+                                        position: { lat: @item.latitude, lng: @item.longitude },
+                                        map,
+                                        title: '@item.facilityName'
+                                    });
+                                        marker.addListener('click', () => {
+                                        infowindow.open(map, marker);
+                                    });
+                                            </text>   }
+                                    }
 
-                            //Display the Google map in the div control with the defined Options
-                            var map = new google.maps.Map(document.getElementById("myDiv"), mapOptions);
 
-                            //Set Marker on the Map
-                          @foreach(var item in Model){
-                         <text>
-
-                            var marker = new google.maps.Marker({
-                              map: map,
-                              position: { lat: @item.latitude, lng: @item.longitude },
-                              title: '@item.facilityName'
-                            });
-
-                        </text>
-                    }
-
-                        marker.setMap(map);
 
                             </script>
 
