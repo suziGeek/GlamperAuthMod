@@ -81,6 +81,7 @@
                                         position: { lat: @item.latitude, lng: @item.longitude },
                                         map,
                                         title: '@item.facilityName'
+
                                     });
                                         marker.addListener('click', () => {
                                         infowindow.open(map, marker);
