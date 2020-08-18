@@ -11,10 +11,11 @@ namespace GlamperAuth.Models
             {
             }
 
-        // user ID from AspNetUser table.
-        //public string User { get; set; }
-        public string id { get; set; }
-        
+        public string user { get; set; }
+        public string CampsiteName { get; set; }
+        public string campID { get; set; }
+
+
 
     }
 }

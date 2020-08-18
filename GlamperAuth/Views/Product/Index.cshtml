@@ -63,8 +63,8 @@
                                 // This example displays a marker at the center of Australia.
                                 // When the user clicks the marker, an info window opens.
                                 function initMap() {
-                                    
-                                    
+
+
                                     const map = new google.maps.Map(document.getElementById("myDiv"), {
                                         zoom: 6,
                                         center: { lat: 39.6336111, lng: -82.8747222  }
@@ -73,32 +73,34 @@
                                     @foreach (var item in Model)
                                     {
                                              <text>
-                                                     
-                                    @*var infowindow = new google.maps.InfoWindow({
-                                        content: '@item.facilityName'
-                                    });*@
                                         var marker = new google.maps.Marker({
                                         position: { lat: @item.latitude, lng: @item.longitude },
-                                        map,
-                                        title: '@item.facilityName'
+
+                                            /*trying a different way for postiion*/
+                                            //position: new google.maps.LatLng(@item.latitude, @item.longitude),
+
+                                                    map,
+                                            title: '@item.facilityName',
 
                                     });
-                                    //    marker.addListener('click', () => {
-                                    //    infowindow.open(map, marker);
-                                    //});
-
-                                    marker.infowindow = new google.maps.InfoWindow({
+                                  marker.infowindow = new google.maps.InfoWindow({
                                         content: '@item.facilityName'
                                     });
                                     google.maps.event.addListener(marker, 'click', function () {
                                         this.infowindow.open(map, marker);
                                     });
 
-
-
                                             </text>   }
                                     }
-                                
+/*----------------------------------------------------------------------------*/
+                                //google.maps.event.addListener(marker, 'click', function () {
+                                //    // this = marker
+                                //    var marker_map = this.getMap();
+                                //    this.info.open(marker_map, this);
+                                //    // Note: If you call open() without passing a marker, the InfoWindow will use the position specified upon construction through the InfoWindowOptions object literal.
+                                //});
+
+
 
                             </script>
 

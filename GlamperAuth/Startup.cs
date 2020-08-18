@@ -45,6 +45,7 @@ namespace GlamperAuth
             });
 
             services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IFavoritesRepository, FavoritesRepository>();
 
         }
 

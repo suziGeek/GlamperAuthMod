@@ -9,7 +9,7 @@ namespace GlamperAuth.Models
     {
 
         public IEnumerable<Favorites> GetAllFavorites();
-        public void InsertFavorite(Favorites favortieToInsert);
+       
         
     }
 }

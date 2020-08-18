@@ -22,12 +22,7 @@ namespace GlamperAuth.Controllers
             return View(favorites);
         }
 
-        public IActionResult InsertFavoriteToDatabase(Favorites favoriteToInsert)
-        {
-            repo.InsertFavorite(favoriteToInsert);
-
-            return RedirectToAction("Index");
-        }
+        
       
     }
 }
