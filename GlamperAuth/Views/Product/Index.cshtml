@@ -74,22 +74,31 @@
                                     {
                                              <text>
                                                      
-                                    var infowindow = new google.maps.InfoWindow({
+                                    @*var infowindow = new google.maps.InfoWindow({
                                         content: '@item.facilityName'
-                                    });
+                                    });*@
                                         var marker = new google.maps.Marker({
                                         position: { lat: @item.latitude, lng: @item.longitude },
                                         map,
                                         title: '@item.facilityName'
 
                                     });
-                                        marker.addListener('click', () => {
-                                        infowindow.open(map, marker);
+                                    //    marker.addListener('click', () => {
+                                    //    infowindow.open(map, marker);
+                                    //});
+
+                                    marker.infowindow = new google.maps.InfoWindow({
+                                        content: '@item.facilityName'
                                     });
+                                    google.maps.event.addListener(marker, 'click', function () {
+                                        this.infowindow.open(map, marker);
+                                    });
+
+
+
                                             </text>   }
                                     }
-
-
+                                
 
                             </script>
 
