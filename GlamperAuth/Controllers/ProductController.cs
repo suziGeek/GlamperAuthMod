@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GlamperAuth.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 
 
 
@@ -42,11 +43,15 @@ namespace GlamperAuth.Controllers
             return RedirectToAction("Index");
         }
 
-        //public IActionResult DetailPageGet()
-        //{
+        public IActionResult Favorites()
+        {
+           var user = User.Identity.Name;
+            var favorites = repo.GetAllFavorites(user);
+            return View(favorites);
+        }
 
-        //    return RedirectToAction("Index");
-        //}
+
+       
 
     }
 }

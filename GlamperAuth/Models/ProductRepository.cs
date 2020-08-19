@@ -1,4 +1,4 @@
-﻿using ASPNET.Models;
+﻿
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -7,6 +7,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using CodeBeautify;
 using GlamperAuthMOD.Models;
+using Microsoft.AspNetCore.Identity;
+//inject UserManager<IdentityUser> UserManager
 
 namespace GlamperAuth.Models
 {
@@ -35,22 +37,24 @@ namespace GlamperAuth.Models
                 new { name = product.facilityName, price = product.facilityID, id = product.facilityID });
         }
 
-      
-       
+
+
         public void InsertFavorite(uint id, string facilityName, string user)
         {
             _conn.Execute("INSERT INTO Favorites (campId, campsiteName, user) VALUES (@id, @facilityName, @user);",
-                new { id = id, facilityName= facilityName, user = user });
+                new { id = id, facilityName = facilityName, user = user });
 
         }
-        //-----parse xml camping detail page
 
-        //public object GetDetail(string jsonString)
-        //{
-        //    var welcome2 = Welcome2.FromJson(jsonString);
+        public IEnumerable<Product> GetAllFavorites(string user)
+        {
 
-        //    return welcome2;
-        //}
+            return _conn.Query<Product>("SELECT * FROM Favorites WHERE user = @user",
+                new
+                {
+                    user = user
+                });
 
+        }
     }
 }

@@ -53,6 +53,9 @@ namespace GlamperAuth.Models
         public string state { get; set; }
 
         public string user { get; set; }
+        public string CampsiteName { get; set; }
+        public string campId { get; set; }
+
         //public XElement CampDetail {get;set;}
 
 

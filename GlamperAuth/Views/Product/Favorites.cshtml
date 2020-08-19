@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<Product>
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+    <style>
+        .product-container {
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+    </style>
+
+   
+           
+    <div class="container product-container" style="width: 75%">
+        <h2>Favorite Campsites</h2>
+
+
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>User</th>
+
+            </tr>
+
+            @foreach (var Favorite in Model)
+            {
+                <tr>
+                    <td> @Favorite.CampsiteName</td>
+                    <td>@Favorite.campId</td>
+                    <td>@Favorite.user</td>
+                </tr>
+
+            }
+        </table>
+
+    </div>>

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -18,7 +19,7 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     @*<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsf1kKrPRT7FKL_aLtVkL0RBrZhIJm69o"></script>*@
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsf1kKrPRT7FKL_aLtVkL0RBrZhIJm69o&callback=initMap&libraries=&v=weekly"defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAsf1kKrPRT7FKL_aLtVkL0RBrZhIJm69o&callback=initMap&libraries=&v=weekly" defer></script>
 
 </head>
 <body>
@@ -27,7 +28,7 @@
         <div class="container">
             <!-- Brand -->
 
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">GlamperAuth</a>
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Glamper</a>
             <!-- Collapse -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -48,33 +49,27 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" asp-area="" asp-controller="Product" asp-action="Index">Campgrounds</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-controller="Favorites" asp-action="Index">Favorites</a>
-                    </li>
-                    <li class="nav-item">
-                        <partial name="_LoginPartial" />
-                    </li>
+                    @{
+                        var user = Context.User.Identity.Name;
+                    }
+                    @if (user != null) 
+                    
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Product" asp-action="Favorites">Favorite</a>
+                        </li>
+                    }
+                    
                 </ul>
 
 
 
                 <!-- Right -->
                 <ul class="navbar-nav nav-flex-icons">
+                   
                     <li class="nav-item">
-                        <a href="https://www.facebook.com/mdbootstrap" class="nav-link" target="_blank">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://twitter.com/MDBootstrap" class="nav-link" target="_blank">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="nav-link border border-light rounded"
-                           target="_blank">
-                            <i class="fab fa-github mr-2"></i>MDB GitHub
-                        </a>
+                       
+                        <partial name="_LoginPartial" />
                     </li>
                 </ul>
 
@@ -82,7 +77,7 @@
             </div>
         </div>
     </nav>
-    
+
 
     @RenderBody()
 
@@ -147,7 +142,7 @@
         <div class="footer-copyright py-3">
 
 
-            &copy; 2020 - GlamperAuth - <a class="text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2020 - Glamper - <a class="text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
 
 
         </div>
