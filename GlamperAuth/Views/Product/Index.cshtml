@@ -18,54 +18,25 @@
     <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
 
         <!-- Content -->
+        
         <div class="container">
 
             <!--Grid row-->
             <div class="row wow fadeIn">
 
                 <!--Grid column-->
-                <div class="col-md-6 mb-4 white-text text-center text-md-left">
-
-                    <h1 class="display-4 font-weight-bold">Plan your next get away.</h1>
-
-                    <hr class="hr-light">
-
-                    <p>
-                        <strong>Find the perfect spot</strong>
-                    </p>
-
-                    <p class="mb-4 d-none d-md-block">
-                        <strong>
-                            Planning your next camp outing is easy. Create favorites, plan routes, and more.
-                        </strong>
-                    </p>
-
-                    @{
-                        var user = Context.User.Identity.Name;
-                    }
-                    @if (user == null)
-                    {
-                        <p class="mb-3 d-none d-md-block">
-                            <strong>
-                                Create an Account so you can add favorites and more...
-                            </strong>
-                        </p>
-                        <div class="btn btn-indigo btn-lg">
-                            Create an account!
-                            <a class="nav-link border border-light rounded" asp-area="Identity" asp-page="/Account/Register">Register</a>
-                        </div>
-                    }
+            
                 </div>
                 <!--Grid column-->
                 <!--Grid column-->
-                <div class="col-lg-7 col-xl-5 mb-5">
+                <div class="container-md text-center text-md-center" style="margin-top:100px;">
 
                     <!--Card-->
                     <div class="card">
 
                         <!--Card content-->
-                        <div class="card-body" id="myDiv" style="width:110%;height:400px;">
-                            @* <div id="myDiv" class="mapbut" style="width:100%;height:400px;"></div> *@
+                        <div class="card-body" id="myDiv" style="width:100%;height:500px;">
+                           
 
                             <!-- Map -->
                             <script type="text/javascript">
@@ -73,10 +44,10 @@
                                 // This example displays a marker at the center of Australia.
                                 // When the user clicks the marker, an info window opens.
                                 function initMap() {
-
+                                    var shape = "http://maps.google.com/mapfiles/kml/pal2/icon2.png";
 
                                     const map = new google.maps.Map(document.getElementById("myDiv"), {
-                                        zoom: 6,
+                                        zoom: 8,
                                         center: { lat: 39.6336111, lng: -82.8747222  }
                                     });
 
@@ -98,7 +69,8 @@
                                         var marker = new google.maps.Marker({
                                                     position: { lat: @item.latitude, lng: @item.longitude },
                                                     map: map,
-                                                    title: '@item.facilityName',
+                                            title: '@item.facilityName',
+                                            icon: shape,
 
                                         });
 
@@ -125,11 +97,11 @@
 
                     </div>
                     <!--/.Card-->
-                    <button onclick="toggle_visibility('list')"> Click here for list view</button>
+                    @*<button onclick="toggle_visibility('list')" formtarget="#list"> Click here for list view</button>*@
+                    <a href="#list" class="btn btn-outline-success warning-color" onclick="toggle_visibility('list')">List View</a>
                 </div>
                 <!--Grid column-->
-
-            </div>
+            
             <!--Grid row-->
 
         </div>
@@ -141,10 +113,11 @@
 </div>
 
 
-<div class="container-fluid animated slideInRight" id="list">
+<div class="container-fluid animated fadeInRight" style="margin-top: 200px;" id="list">
     <div class="container" style="width: 75%">
-        <h2>Campgrounds</h2>
+        
         <table class="table">
+            <tr><th><h2>Campgrounds</h2></th></tr>
             <tr>
                 
                 <th>Name</th>

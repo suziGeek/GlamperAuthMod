@@ -40,7 +40,7 @@ namespace GlamperAuth.Controllers
         
             repo.InsertFavorite(facilityID, facilityName, user);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Favorites");
         }
 
         public IActionResult Favorites()

@@ -44,7 +44,7 @@
                 var user = Context.User.Identity.Name;
             }
             @if (user == null)
-            {<button class="btn btn-outline-success">Login to add to favorites</button> }
+            {<a  class="btn btn-outline-success" asp-area="Identity" asp-page="/Account/Login">Login to add to Favorites</a> }
             else
             {
                 @using (Html.BeginForm("InsertFavoriteToDatabase", "Product", "Post"))
