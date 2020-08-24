@@ -52,6 +52,10 @@ namespace GlamperAuth
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            /*uncomment below to see errors on web host*/
+            //app.UseDeveloperExceptionPage();
+            //app.UseDatabaseErrorPage();
+            /*comment out below for errors*/
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

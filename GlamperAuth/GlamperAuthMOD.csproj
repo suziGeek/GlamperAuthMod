@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-GlamperAuth-1AB6CACD-773B-4E4C-B6F5-EFF9F91F0FB4</UserSecretsId>
+    <Configurations>Debug;Release;test</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

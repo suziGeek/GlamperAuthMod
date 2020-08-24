@@ -8,7 +8,12 @@ namespace GlamperAuthMOD.Models
 {
     public class ProductDetail
     {
-        public string CampDetail { get; set; }
+
+
+        public string alert { get; set; }
+        public string description { get; set; }
+        public List<string> campDetails {get;set;}
+
 
     }
 }

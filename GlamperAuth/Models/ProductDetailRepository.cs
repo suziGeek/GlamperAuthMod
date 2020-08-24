@@ -21,13 +21,20 @@ namespace GlamperAuthMOD.Models
 
         //public ProductDetail GetProductDetail()
         //{
-        //    var campUrl = "http://api.amp.active.com/camping/campground/details?contractCode=CO&parkId=50032&api_key=hcgj5x79d9wren68k2pj5nv9";
-        //    var campResponse = _client.GetStringAsync(campUrl).Result;
-        //    var CampDetail = XElement.Parse(campResponse).ToString();
-        //    //List<XElement> contactNodes = ProductDetail.Elements("result").ToList();
-            
+            //var campUrl = "http://api.amp.active.com/camping/campground/details?contractCode=CO&parkId=50032&api_key=hcgj5x79d9wren68k2pj5nv9";
+            //var campResponse = _client.GetStringAsync(campUrl).Result;
+            //XDocument doc = XDocument.Load(campResponse);
+            // var campDetails = doc.Root
+            //                  .Elements("detailDescription")
+            //                  .Select(x => new ProductDetail
+            //                  {
+            //                      alert = (string)x.Attribute("alert"),
+            //                      description = (string)x.Attribute("description")
+            //                  })
+            //                  .ToList();
 
-        //    return <ProductDetail> CampDetail;
+
+            //return campDetails;
         //}
     }
 }

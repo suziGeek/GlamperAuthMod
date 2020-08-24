@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
-using CodeBeautify;
+
 using GlamperAuthMOD.Models;
 using Microsoft.AspNetCore.Identity;
 //inject UserManager<IdentityUser> UserManager
@@ -56,5 +56,13 @@ namespace GlamperAuth.Models
                 });
 
         }
+
+        public void DeleteFavorite(Favorites favorite)
+        {
+            _conn.Execute("DELETE FROM favorites WHERE campId = @campId AND user = @user;",
+                                       new { user = favorite.user, campId = favorite.campID });
+            
+        }
+
     }
 }
