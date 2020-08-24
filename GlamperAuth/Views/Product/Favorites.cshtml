@@ -7,40 +7,43 @@
         .product-container {
             margin-top: 100px;
             margin-bottom: 100px;
+            display: flex;
+            justify-content: center;
         }
     </style>
 
    
            
-    <div class="container product-container" style="width: 75%">
-        <h2>Favorite Campsites</h2>
+    <div class="container-fluid product-container align-content-center" >
+        <div class="align-content-center" style="width: 75%">
+            <h2>Favorite Campsites</h2>
 
 
-        <table class="table">
-            <tr>
-                <th>Name</th>
-                <th>ID</th>
-                <th>User</th>
+            <table class="table align-content-center">
+                <tr>
+                    <th>Name</th>
+                    <th>ID</th>
 
-            </tr>
 
-            @foreach (var Favorite in Model)
-            {
-        <tr>
-            <td> @Favorite.CampsiteName</td>
-            <td>@Favorite.campId</td>
-            <td>@Favorite.user</td>
-            <td>
-                @using (Html.BeginForm("DeleteFavorite", "Product", "Post"))
+                </tr>
+
+                @foreach (var Favorite in Model)
                 {
-                    <input type="hidden" asp-for="@Favorite.campId" value="@Favorite.campId" />
-                    <input type="hidden" asp-for="@Favorite.user" value="@Favorite.user" />
-                    <input type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')" value="Delete Favorite" />
+                    <tr>
+                        <td> @Favorite.CampsiteName</td>
+                        <td>@Favorite.campId</td>
+
+                        <td>
+                            @using (Html.BeginForm("DeleteFavorite", "Product", "Post"))
+                            {
+                                <input type="hidden" asp-for="@Favorite.campId" value="@Favorite.campId" />
+                                <input type="hidden" asp-for="@Favorite.user" value="@Favorite.user" />
+                                <input type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')" value="Delete Favorite" />
+                            }
+                        </td>
+                    </tr>
+
                 }
-            </td>
-        </tr>
-
-            }
-        </table>
-
+            </table>
+        </div>
     </div>>
