@@ -1,0 +1,40 @@
+﻿@using System
+@using System.Xml
+@model GlamperAuthMOD.Models.CampsiteDetail
+@using System.Web
+
+<style>
+    .product-container {
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+</style>
+
+@{
+    ViewData["Title"] = "Campsite Details";
+
+    //var alert =  HttpUtility.HtmlEncode(@Model.alert);
+    //var description = HttpUtility.HtmlEncode(@Model.description);
+    var drivingDirections = HttpUtility.HtmlEncode(@Model.drivingDirections);
+}
+
+
+
+<div class="container-fluid">
+    <div class="container" style="width:75%">
+        <div class="product-container">
+            <ul>
+
+                @{
+
+                    <li >@Model.alert</li>
+                    <li >@Model.description</li>
+                    <li >@drivingDirections</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+

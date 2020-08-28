@@ -136,7 +136,10 @@
                     <td>@product.latitude</td>
                     <td>@product.contractType</td>
                     <td>
-                        <a class="btn btn-outline-success" href=/Product/ViewProduct/@product.facilityID>Learn More</a>
+                        @*<a class="btn btn-outline-success" href=/Product/ViewProduct/@product.facilityID>Learn More</a>*@
+                    
+                        <a class="navbar-brand" asp-area="" asp-route-campId=@product.facilityID asp-route-contractId=@product.contractID asp-controller="CampsiteDetail" asp-action="Index">Campsite Detail</a>
+                    
                     </td>
 
 
