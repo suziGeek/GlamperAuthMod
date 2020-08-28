@@ -46,9 +46,11 @@ namespace GlamperAuth.Controllers
         public IActionResult Favorites()
         {
            var user = User.Identity.Name;
-            var favorites = repo.GetAllFavorites(user);
-            return View(favorites);
+           var favorites = repo.GetAllFavorites(user);
+
+           return View(favorites);
         }
+
         public IActionResult DeleteFavorite(Favorites favorite)
         {
             repo.DeleteFavorite(favorite);
