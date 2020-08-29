@@ -74,13 +74,7 @@
 
                                         });
 
-                                    makeInfoWindow(marker, '<a class="btn btn-outline-success" href=/Product/ViewProduct/@item.facilityID>@item.facilityName</a><br>Learn More');
-                                  @*marker.infowindow = new google.maps.InfoWindow({
-                                        content: '@item.facilityName'
-                                    });*@
-                                    //google.maps.event.addListener(marker, 'click', function () {
-                                    //    this.infowindow.open(map, marker);
-                                    //});
+                                    makeInfoWindow(marker, '<a class="navbar-brand" asp-area="" asp-route-campId=@item.facilityID asp-route-contractId=@item.contractID asp-controller="CampsiteDetail" asp-action="Index">@item.facilityName</a><br>Learn More');
 
                                             </text>   }
                                     }

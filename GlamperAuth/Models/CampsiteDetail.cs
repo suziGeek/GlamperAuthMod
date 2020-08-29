@@ -22,6 +22,11 @@ namespace GlamperAuthMOD.Models
         public string importantInformation { get; set; }
         public string note { get; set; }
         public List<CampsiteDetail> allCampDetails { get; set; }
+        public string fullReservationUrl { get; set; }
+        public string address { get; set; }
+        public string user { get; set; }
+        public uint facilityID { get; set; }
+        public string facilityName { get; set; }
 
 
 
